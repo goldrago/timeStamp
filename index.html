@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timestamp Converter</title>
+</head>
+<body>
+  <h1>Timestamp Converter</h1>
+  <form action="javascript:void(0);">
+    <input type="text" id="timestamp" placeholder="Enter timestamp number">
+    <select id="unit">
+      <option value="seconds">Seconds</option>
+      <option value="minutes">Minutes</option>
+      <option value="hours">Hours</option>
+      <option value="days">Days</option>
+    </select>
+    <button type="button" id="convert">Convert</button>
+    <input type="text" id="converted" readonly>
+  </form>
+  <script>
+    function convertTimestamp() {
+      // Get the timestamp number from the text box.
+      const timestamp = document.getElementById("timestamp").value;
+
+      // Get the unit from the drop-down list.
+      const unit = document.getElementById("unit").value;
+
+      // Convert the timestamp to the selected unit.
+      const converted = timestamp / (unit === "seconds" ? 1 : unit === "minutes" ? 60 : unit === "hours" ? 3600 : 86400);
+
+      // Print the converted number in the text box.
+      document.getElementById("converted").value = converted;
+    }
+    document.getElementById("convert").addEventListener("click", convertTimestamp);
+  </script>
+</body>
+</html>
