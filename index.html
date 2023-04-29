@@ -18,6 +18,8 @@
     </select>
     <button type="button" id="convert">Convert</button>
     <input type="text" id="converted" readonly>
+
+    <div id="ct-time"></div>
   </form>
   <script>
     function convertTimestamp() {
@@ -34,6 +36,11 @@
       document.getElementById("converted").value = converted;
     }
     document.getElementById("convert").addEventListener("click", convertTimestamp);
+    const currentTime = new Date();
+  const ctTime = currentTime.toLocaleString("en-US", {
+  timeZone: "America/Chicago"
+});
+document.getElementById("ct-time").innerText = ctTime;
   </script>
 </body>
 </html>
