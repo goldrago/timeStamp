@@ -37,11 +37,26 @@
       document.getElementById("converted").value = converted;
     }
     document.getElementById("convert").addEventListener("click", convertTimestamp);
-    const currentTime = new Date();
-  const ctTime = currentTime.toLocaleString("en-US", {
+	
+	  //CT-time display.
+   // const currentTime = new Date();
+  //const ctTime = currentTime.toLocaleString("en-US", {
+  //timeZone: "America/Chicago"
+//});
+//document.getElementById("ct-time").innerText = ctTime;
+const currentTime = new Date();
+const ctTime = currentTime.toLocaleString("en-US", {
   timeZone: "America/Chicago"
 });
-document.getElementById("ct-time").innerText = ctTime;
+
+setInterval(function() {
+  currentTime = new Date();
+  ctTime = currentTime.toLocaleString("en-US", {
+    timeZone: "America/Chicago"
+  });
+  document.getElementById("ct-time").innerText = ctTime;
+}, 1000);
+	  
   </script>
 </body>
 </html>
